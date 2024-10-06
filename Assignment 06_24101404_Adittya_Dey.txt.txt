@@ -1,0 +1,290 @@
+1)
+public class AssignmentTester{
+  public static void main(String [] args){
+    Assignment as1 = new Assignment();
+    as1.printDetails();
+    System.out.println("1---------------");
+    as1.tasks = 11;
+    as1.difficulty = "Moderate";
+    as1.submission = true;
+    as1.printDetails();
+    System.out.println("2---------------");
+    as1.makeOptional();
+    System.out.println("3---------------");
+    as1.printDetails();
+    System.out.println("4---------------");
+    Assignment as2 = new Assignment();
+    as2.tasks = 12;
+    as2.difficulty = "Hard";
+    as2.submission = false;
+    as2.printDetails();
+    System.out.println("5---------------");
+    as2.makeOptional();
+  }
+}
+
+public class Assignment{
+  
+  public int tasks;
+  public String difficulty;
+  public boolean submission;
+  
+  Assignment(){
+    this.tasks=0;
+    this.difficulty="null";
+    this.submission=false;
+  }
+  void printDetails(){
+    System.out.println("Number of tasks :"+tasks);
+    System.out.println("Difficulty level :"+difficulty);
+    System.out.println("Submission required :"+submission);
+  }
+  void makeOptional(){
+    if(submission==true){
+      System.out.println("Assignment will not require submission");
+    }else{
+      System.out.println("Assignment is already not required");
+    }
+  }
+}
+
+
+
+2)
+
+public class ShelfTester{
+  public static void main(String [] args){
+    Shelf shelf = new Shelf();
+    shelf.showDetails();
+    System.out.println("1---------------");
+    shelf.addBooks(3);
+    System.out.println("2---------------");
+    shelf.capacity = 7;
+    shelf.addBooks(3);
+    System.out.println("3---------------");
+    shelf.showDetails();
+    System.out.println("4---------------");
+    shelf.addBooks(5);
+    shelf.showDetails();
+    shelf.capacity += 4;
+    System.out.println("6---------------");
+    shelf.addBooks(5);
+    shelf.showDetails();
+  }
+}
+
+public class Shelf{
+  public int capacity;
+  public int numbers;
+  Shelf(){
+  this.capacity=0;
+  this.numbers=0;
+  }
+  void showDetails(){
+       System.out.println("Shelf Capacity :"+capacity);
+    System.out.println("Number of books :"+numbers);
+  }
+  void addBooks(int a){
+     numbers+=a;
+    
+    if(capacity==0){
+      System.out.println("Zero capacity,cannot add books.");
+      numbers-=a;
+    }else if(numbers>capacity){
+      System.out.println("Exceeds capacity");
+      numbers-=a;
+    }else{
+     
+      System.out.println(a+" Books added to shelf");
+      
+    }
+  }
+}
+   
+3)
+public class LightControllerTester{
+  public static void main(String args []){
+    LightController c1 = new LightController();
+    c1.showLightStatus();
+    System.out.println("1---------------");
+    c1.adjustBrightness(4);
+    c1.switchLight();
+    System.out.println("2---------------");
+    c1.showLightStatus();
+    System.out.println("3---------------");
+    c1.adjustBrightness(4);
+    System.out.println("4---------------");
+    c1.showLightStatus();
+    System.out.println("5---------------");
+    c1.adjustBrightness(-2);
+    c1.adjustBrightness(9);
+    System.out.println("6---------------");
+    c1.showLightStatus();
+    System.out.println("7---------------");
+    System.out.println(c1.resetSettings());
+    c1.showLightStatus();
+    System.out.println("8---------------");
+    c1.switchLight();
+    System.out.println("9---------------");
+    c1.showLightStatus();
+  }
+}
+
+public class LightController{
+  public String status;
+  public int level;
+  
+  LightController(){
+    this.status="OFF";
+    this.level=0;
+  }
+  void showLightStatus(){
+       System.out.println("Light status: "+status);
+       System.out.println("Brightness level: "+level);
+     }
+  
+  void adjustBrightness(int a){
+    level+=a;
+     if(status.equals("OFF")){
+      System.out.println("Please turn on the light first!");
+      level-=a;
+     }else if(status.equals("ON") && 0<level && level<10){
+       
+       System.out.println("Brightness adjusted");
+     }else{
+       level-=a;
+       System.out.println("Brightness out of range.Please set between 0 to 10");
+     }
+     }
+     void switchLight(){
+       if(status.equals("OFF")){
+      status="ON";
+      level=1;
+      System.out.println("Lights are now ON");
+       }else{
+         status="OFF";
+         level=0;
+         System.out.println("Lights are now OFF");
+       }
+          }
+           String resetSettings(){
+             level=1;
+            
+              return "Light settings have been reset";
+      }
+    }
+
+
+4)
+public class BurgerMaker{
+  public static void main(String [] args){
+     ChickenBurger b1 = new ChickenBurger();
+     System.out.println(b1.bun);
+     System.out.println(b1.price);
+     System.out.println(b1.sauceOption);
+     System.out.println(b1.spiceLevel);
+     System.out.println("----------1----------");
+     System.out.println(b1.serveBurger());
+     System.out.println("----------2----------");
+     b1.customizeSpiceLevel("Extreme Jhaal");
+     b1.customizeSpiceLevel("Spicy");
+     System.out.println("----------3----------");
+     System.out.println(b1.serveBurger());
+     System.out.println("----------4----------");
+     ChickenBurger b2 = new ChickenBurger();
+     b2.bun = "Brioche";
+     b2.price += 50;
+     b2.sauceOption = "Regular";
+     b2.customizeSpiceLevel("Naga");
+     System.out.println("----------5----------");
+     System.out.println(b2.serveBurger());
+  }
+}
+
+public class ChickenBurger{
+  public String bun;
+  public int price;
+  public String sauceOption;
+  public String spiceLevel;
+ public String arr[]=new String[3];
+  public int count=0;
+  ChickenBurger(){
+    bun="Sesame";
+   price=200;
+    sauceOption="Less";
+    spiceLevel="Not set";
+  }
+    void customizeSpiceLevel(String a){
+      if(a.equalsIgnoreCase("spicy")||a.equalsIgnoreCase("mild")||a.equalsIgnoreCase("naga")){
+       if(count<arr.length){
+        arr[count++]=a;
+        System.out.println("Spice level set to "+a);
+        }else{
+          System.out.println("Maximum space customization reached");
+     }
+      }else{
+        System.out.println("This spice level is unavailable.");
+      }
+    }
+    
+    
+    
+ 
+  String serveBurger(){
+   if(count<=0){
+     return "Cannot serve now.Customize Spice level first";
+    }else{
+     return "The burger is being served:\n"+
+      "Bun type: "+bun +"\n"+
+      "Price: "+price+"\n"+
+      "Sauce option: "+sauceOption+"\n"+
+      "Spice level :"+arr[count-1]+"\n";
+   }
+  }
+    }
+     
+8)
+public class ShapeTester{
+  public static void main(String args []){
+    Shape circle = new Shape();
+    Shape triangle = new Shape();
+    Shape trapezium = new Shape();
+    
+    circle.setParameters("Circle", 5);
+    triangle.setParameters("Triangle", 4, 7);
+    trapezium.setParameters("Trapezium", 2, 4, 9);
+    
+    System.out.println(circle.details());
+    System.out.println("---------------");
+    System.out.println(triangle.details());
+    System.out.println("---------------");
+    System.out.println(trapezium.details());  
+  }
+}
+
+public class Shape{
+  public String name;
+  public double area;
+  void setParameters(String a,int b){
+    name=a;
+    area=(3.1416*5*5);
+  }
+   void setParameters(String a,int b,int c){
+    name=a;
+      area=(0.5*b*c);
+  }
+   void setParameters(String a,int b,int c,int d){
+    name=a;
+    area=(0.5*(b+c)*d);
+  }
+   String details(){
+     return "Shape Name :"+name+"\n"+
+            "Area :"+area;
+   }
+}   
+      
+    
+    
+
+
+ 

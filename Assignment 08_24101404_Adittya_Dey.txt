@@ -1,0 +1,417 @@
+1)
+public class PassengerTester{ 
+  public static void main(String args[]){
+    System.out.println("Total Passenger: "+ Passenger.no_of_passenger);
+    System.out.println("Total Fare: "+ Passenger.total_fare + " TK");
+    System.out.println("==========1==========");
+    Passenger p1 = new Passenger("Lara", 5.6);
+    p1.passengerDetails();
+    System.out.println("==========2==========");
+    Passenger p2 = new Passenger("Kevin", 10.0);
+    p2.setBaggageWeight(6.8);
+    p2.passengerDetails();
+    System.out.println("==========3==========");
+    Passenger p3 = new Passenger("Robin", 2.3);
+    p3.setBaggageWeight(5);
+    p3.passengerDetails();
+    System.out.println("==========4==========");
+    System.out.println("Total Passenger: "+ Passenger.no_of_passenger);
+    System.out.println("Total Fare: "+ Passenger.total_fare + " TK");
+  }
+}
+public class Passenger{
+  public static int no_of_passenger;
+  public static double total_fare;
+  public String name;
+  public double distance;
+  public double fare;
+  public double weight;
+  public double weight_fare;
+  
+  
+  Passenger(String name,double distance){
+    this.name=name;
+    this.distance=distance;
+    this.fare=(distance*20);
+    total_fare+=this.fare;
+    no_of_passenger+=1;
+    
+  }
+    void passengerDetails(){
+    System.out.println("Name: "+name);
+    System.out.println("Fare: "+fare);
+  }
+    
+    void setBaggageWeight(double weight){
+      this.weight=weight;
+      this.fare=fare+(10*weight);
+      this.weight_fare=(10*weight);
+      total_fare+=weight_fare;
+      
+    }
+}
+  
+2)
+public class BookTester {
+    public static void main(String[] args) {
+        System.out.println("Total Books Sold: " + Book.total_books_sold);
+        System.out.println("Total Revenue: "+Book.total_revenue + " TK");
+        System.out.println("==========1==========");
+
+        Book b1 = new Book("Java Programming", 10); // 10% discount
+        b1.bookDetails();
+
+        System.out.println("==========2==========");
+
+        Book b2 = new Book("Python Programming", 15); // 15% discount
+        b2.bookDetails();
+
+        System.out.println("==========3==========");
+
+        Book b3 = new Book("Data Structures", 5); // 5% discount
+        b3.bookDetails();
+
+        System.out.println("==========4==========");
+        System.out.println("Total Books Sold: " + Book.total_books_sold);
+        System.out.println("Total Revenue: "+Book.total_revenue + " TK");
+    }
+}
+
+public class Book{
+  public static int total_books_sold;
+  public static double total_revenue;
+  public double revenue;
+  public double discount;
+  public String name;
+  
+  Book(String name,double discount){
+    this.name=name;
+    this.discount=discount;
+    revenue=(150-(discount/100)*150);
+    total_books_sold+=1;
+    
+    total_revenue+=revenue;
+  }
+  void bookDetails(){
+    System.out.println("Title: "+name+"\nPrice after discount: \n"+revenue);
+  }
+}
+
+3)
+public class StudentTester {
+  public static void main(String[] args) {
+    Student.printDetails();
+    System.out.println("--------------------");
+    Student mikasa = new Student("Mikasa", 3.75);
+    mikasa.individualDetail();
+    System.out.println("--------------------");
+    Student.printDetails();
+    System.out.println("--------------------");
+    Student harry = Student.createStudent("Harry", 2.5, "Charms");
+    harry.individualDetail();
+    System.out.println("--------------------");
+    Student.printDetails();
+    System.out.println("--------------------");
+    Student levi = new Student("Levi", 3.33);
+    levi.individualDetail();
+    System.out.println("--------------------");
+    Student.printDetails();
+  }
+}
+
+public class Student{
+  public static int total_stu;
+  public static int cse_stu;
+  public static int other_stu;
+  private int id;
+  public static int id_count;
+  public String name;
+  private double cgpa;
+  public String dept;
+  public static void printDetails(){
+    System.out.println("Total students(s): "+total_stu+"\nCse student(s): "+cse_stu+"\nOther Department Student(s) "+other_stu);
+}
+  public Student(String name,double cgpa){
+    this.id=(++id_count);
+    total_stu+=1;
+    this.dept="CSE";
+    cse_stu+=1;
+    this.name=name;
+    this.cgpa=cgpa;
+  }
+  public Student(String name,double cgpa,String dept){
+    this.id=(++id_count);
+    total_stu+=1;
+    this.name=name;
+    this.cgpa=cgpa;
+    this.dept=dept;
+    if(dept.equals("CSE")){
+      cse_stu+=1;
+    }else{
+      other_stu+=1;
+    }
+       }
+  
+  public void individualDetail(){
+    System.out.println("ID "+id+"\nName: "+name+"\nCGPA: "+cgpa+"\nDepartment :"+dept);
+  }
+  public static Student createStudent(String name,double cgpa,String dept){
+    return new Student(name,cgpa,dept);
+  }
+}
+
+4)
+
+public class Tester{
+  public static void main(String args[]){
+    Borrower.bookStatus();
+    System.out.println("*********1*********");
+    Borrower b1 = new Borrower("Nabila");
+    b1.borrowBook("Pather Panchali");
+    b1.borrowBook("Anandmath");
+    b1.borrowerDetails();
+    System.out.println("*********2*********");
+    Borrower b2 = new Borrower("Sadia");
+    b2.borrowBook("Anandmath");
+    b2.borrowBook("Durgesh Nandini");
+    b2.borrowBook("Pather Panchali");
+    b2.borrowerDetails();
+    System.out.println("*********3*********");
+    System.out.println(Borrower.remainingBooks("Anandmath")+" copies of Anandmath is remaining.");
+    System.out.println("*********4*********");
+    Borrower b3 = new Borrower("Anika");
+    b3.borrowBook("Anandmath");
+    Borrower.bookStatus();
+    System.out.println("*********5*********");
+    Borrower b4 = new Borrower("Oishi");
+    b4.borrowBook("Anandmath");
+    b4.borrowBook("Durgesh Nandini");
+    b4.borrowerDetails();
+  }
+}
+
+ public class Borrower{
+  public static int book_count[] = {3, 3, 3};
+  public static String book_name[] = {"Pather Panchali", "Durgesh Nandini", "Anandmath"};
+  private String name;
+  private String borrowed_book[]=new String[3];
+  public int borrowed_count;
+  boolean borrowed_book_test[]=new boolean[3];
+
+   Borrower(String name){
+    this.name=name;
+  }
+   void borrowBook(String book){
+     
+     for(int i=0;i<3;i++){
+       if(book.equals(book_name[i])){
+         if(book_count[i]<1){
+           System.out.println("This book is not available");
+           return;
+         }
+       
+       if(!borrowed_book_test[i]){
+      borrowed_book[i]=book;
+      
+      borrowed_book_test[i]=true;
+      book_count[i]--;
+      borrowed_count++;
+      return;
+       }else{
+         System.out.println("You have already borrowed this book");
+       }
+     }
+   }
+     System.out.println("Book not found");
+   }
+   void borrowerDetails(){
+     System.out.println("Name: "+name+"\nBooks borrowed:");
+     for(int i=0;i<3;i++){
+       if(borrowed_book_test[i]){
+         System.out.println(borrowed_book[i]);
+       }
+     }
+   }
+  public static int remainingBooks(String book){
+   for(int i=0;i<3;i++){
+       if(book.equals(book_name[i])){
+         return book_count[i];
+       
+       }
+     }
+   return 0;
+   }
+       static void bookStatus(){
+         System.out.println("Available Books:");
+         for(int i=0;i<3;i++){
+           System.out.println(book_name[i]+": "+book_count[i]);
+         }
+       }
+ }
+        
+
+5)
+public class CargoTester {
+  public static void main(String[] args) {
+    System.out.println("Cargo Capacity: " + Cargo.capacity());
+    System.out.println("1====================");
+    Cargo a = new Cargo("Industrial Machinery", 4.5);
+    a.details();
+    System.out.println("2====================");
+    a.load();
+    System.out.println("3====================");
+    Cargo b = new Cargo("Steel Ingot", 2.7);
+    b.details();
+    System.out.println("4====================");
+    System.out.println("Cargo Capacity: " + Cargo.capacity());
+    System.out.println("5====================");
+    b.load();
+    System.out.println("Cargo Capacity: " + Cargo.capacity());
+    System.out.println("6====================");
+    Cargo c = new Cargo("Tree Trunks", 3.6);
+    c.load();
+    System.out.println("7====================");
+    c.details();
+    b.details();
+    System.out.println("8====================");
+    Cargo d = new Cargo("Processed Goods", 1.8);
+    d.load();
+    System.out.println("Cargo Capacity: " + Cargo.capacity());
+    System.out.println("9====================");
+    b.unload();
+    System.out.println("Cargo Capacity: " + Cargo.capacity());
+    System.out.println("10====================");
+    c.load();
+    System.out.println("11====================");
+    b.details();
+    System.out.println("Cargo Capacity: " + Cargo.capacity());
+  }
+}
+
+public class Cargo{
+  public static double cap=10.0;
+  public String content;
+  public double weight;
+  public  int id;
+  public static int nextId=1;
+  public boolean load;
+  
+  static String capacity(){
+   return ("Cargo Capacity: "+cap);
+  }
+  Cargo(String content,double weight){
+    if(cap>weight){
+    this.content=content;
+    this.weight=weight;
+    
+    this.id=nextId++;
+    }
+  }
+  void details(){
+    System.out.printf("Cargo ID: %d , Contents: %s, Weight: %.2f , Loaded: %b%n",id,content,weight,load);
+                       
+  }
+  void load(){
+     if (load) {
+            System.out.println("Cargo " + id + " is already loaded.");
+            return;
+        }
+     if( cap>=this.weight){
+    System.out.println("Cargo "+id+"loaded for transport.");
+    this.cap=this.cap-this.weight;
+    this.load=true;
+  }else{
+      System.out.println("Cannot load cargo,exceeds weight capacity");
+    }
+  }
+  void unload(){
+    if(!this.load){
+    System.out.println("Cargo "+id+"is already unloaded.");
+    return;
+    }
+    System.out.println("Cargo "+id+"unloaded.");
+    this.cap=this.cap+this.weight;
+    this.load=false;
+  }
+}
+   
+
+   
+6)
+public class ShapeTester {
+  public static void main(String[] args) {
+    Circle c = new Circle();
+    System.out.println("=======================");
+    c.name = "Circle";
+    c.color = "Red";
+    c.radius = 5;
+    c.displayInfo();
+    System.out.println("=======================");
+    c.area();
+  }
+}
+
+public class Shape {
+  public String name;
+  public String color;
+
+  public void displayInfo() {
+    System.out.printf("Name: %s\nColor: %s\n", name, color);
+  }
+}
+
+public class Circle extends Shape {
+    public double radius;
+    public void area(){
+      
+    System.out.println("Area of "+color+" circle: "+(3.1416*radius*radius));
+}
+}
+
+7)
+public class AnimalTester{
+  public static void main(String args[]){
+    Animal a1 = new Animal();
+    System.out.println("1-------------");
+    a1.details();
+    System.out.println("2-------------");
+    Dog d1  = new Dog();
+    d1.name = "Pammy";
+    System.out.println("3-------------");
+    System.out.println("Name: " + d1.getName());
+    d1.details();
+    System.out.println("4-------------");
+    d1.updateSound("Bark");
+    System.out.println("5-------------");
+    d1.details();
+  }
+}
+
+public class Animal{ 
+  public int legs = 4;
+  public String sound = "Not defined";
+  
+  public void details(){
+    System.out.println("Legs: "+legs);
+    System.out.println("Sound: "+sound);
+  }
+}
+
+public class Dog extends Animal{
+  public String name;
+  
+  public Dog(){
+    System.out.println("The dog says hello!");
+  }
+  public String getName(){
+    return name;
+  }
+  public void updateSound(String bark){
+    this.sound=bark;
+  }
+  
+}
+
+
+
+
