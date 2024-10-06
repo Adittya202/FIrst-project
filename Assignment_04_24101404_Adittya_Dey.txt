@@ -1,0 +1,203 @@
+1)
+public class University{
+    public String name;
+    public String country;
+}
+public class University_Tester{
+  public static void main(String[]args){
+    University u1=new University();
+    University u2=new University();
+    System.out.println(u1);
+    System.out.println(u2);
+    u1.name="Imperial College London";
+    u1.country="England";
+    u2.name="Brac University";
+    u2.country="Bangladesh";
+    System.out.println(u1.name);
+    System.out.println(u1.country);
+    System.out.println(u2.name);
+    System.out.println(u2.country);
+  }
+}
+
+2)
+public class Circle{
+  public double radius;
+}
+
+public class Test3{
+  public static void main(String[]args){
+    Circle c1=new Circle();
+    c1.radius=5;
+    System.out.println("Radius of the circle is "+c1.radius);
+    System.out.println("The area of the circle is "+3.1416*(Math.pow(c1.radius,2)));
+    System.out.println("The circumference of the circle is "+2*3.1416*(c1.radius));
+  }
+}
+
+3)
+public class Student{
+  public String name="Bob";
+  public int id=1;
+}
+
+public class Test3{
+   public static void main(String [] args){
+      Student s1 = new Student();
+      System.out.println("Name of the Student: "+s1.name);
+      System.out.println("ID of the Student: "+s1.id);
+      s1.id = 123;
+      System.out.println("ID of the Student: "+s1.id);
+   }
+}
+
+4)
+public class Vehicle{
+  public String type = "Car";
+  public int wheels= 4;
+  public String color="White";
+}
+public class Tester4{
+   public static void main(String [] args){ 
+      Vehicle car = new Vehicle();
+      System.out.println("Attributes of car object:");
+      System.out.println(car.type);
+      System.out.println(car.wheels);
+      System.out.println(car.color);
+      System.out.println("=========");
+      Vehicle bike = new Vehicle();
+      bike.type="Motor bike";
+      bike.wheels=2;
+      bike.color="Red";
+      System.out.println("Attributes of bike object:");
+      System.out.println(bike.type);
+      System.out.println(bike.wheels);
+      System.out.println(bike.color);
+    }
+}
+5)
+public class Tournament{
+  public String name;
+  public String sportsType;
+  public int numberOfTeams=0;
+  public String[] teams;
+}
+public class Tester5{
+  public static void main(String [] args){
+    Tournament asiaCup = new Tournament();
+    System.out.println(asiaCup.name+" "+ asiaCup.sportsType+" "+asiaCup.numberOfTeams+" "+asiaCup.teams);
+    System.out.println("**************");
+    asiaCup.name="Asia Cup";
+    asiaCup.sportsType="Cricket";
+    asiaCup.numberOfTeams=4;
+    asiaCup.teams = new String[] {"BD","IND","PAK","SL"};
+    System.out.printf("%s %s Tournament is played between %d teams\n",asiaCup.name, asiaCup.sportsType, asiaCup.numberOfTeams);
+    System.out.println("The teams are:");
+    for(int i=0; i<asiaCup.teams.length; i++){
+        System.out.println(asiaCup.teams[i]);
+    }
+  }
+}
+
+6)
+public class  ImaginaryNumber{
+  public int realPart=0;
+  public int imaginaryPart=0;
+  public void printNumber(){
+  System.out.println(realPart+" "+ "+"+" "+imaginaryPart+"i");
+}
+}
+public class Tester6{
+  public static void main(String [] args){
+     ImaginaryNumber num1 = new ImaginaryNumber();
+     num1.printNumber();
+     System.out.println("1********");
+     num1.realPart=3;
+     num1.imaginaryPart=7;
+     num1.printNumber();
+     System.out.println("2********");
+     ImaginaryNumber num2 = new ImaginaryNumber();
+     num2.realPart=1;
+     num2.imaginaryPart=9;
+     num2.printNumber();
+    }
+}
+
+7)
+public class Cat{
+  public String color="White";
+  public String action="sitting";
+  public void printCat(){
+ 
+  System.out.println(color+" cat is "+action);
+  
+    
+  
+  }
+}
+public class Test7{
+    public static void main(String [] args){ 
+        Cat c1 = new Cat(); 
+        System.out.println("===================");
+        c1.printCat();
+        c1.color = "Black"; 
+        System.out.println("===================");
+        c1.printCat(); 
+        c1.color = "Brown"; 
+        c1.action = "jumping"; 
+        System.out.println("===================");
+        c1.printCat(); 
+    } 
+} 
+
+8)
+public class Bird{
+  public String name;
+  public String noise;
+  int compare;
+  public void flyUp(int a){
+  System.out.println(name+" has flown up "+a+" feet.");
+  compare=a;
+  }
+  public void makeNoise(){
+    if(name.equals("Parrot")){
+    
+    System.out.println("Squawk");
+    }else if(name.equals("Eagle")){
+      System.out.println("Squee");
+    }
+     }
+             
+     
+  
+  public void flyDown(int a){
+    if(a<compare){
+      System.out.println(name+" has flown down "+a+" feet.");
+    }else if(a==compare){
+      System.out.println(name+" has flown down "+a+" feet and landed.");
+    }else{
+      System.out.println(name+" cannot fly down  "+a+" feet.");
+    }
+  }
+}
+    
+public class Test8{
+    public static void main(String args[]) { 
+        Bird b1 = new Bird();
+        b1.name = "Parrot";
+        b1.flyUp(3);
+        b1.makeNoise();
+        b1.flyDown(5);
+        b1.flyDown(2);
+        b1.flyDown(1);
+        Bird b2 = new Bird();
+        b2.name = "Eagle"; 
+        b2.flyUp(5);
+        b2.flyDown(5);
+        b2.makeNoise(); 
+    }  
+}
+
+
+
+
