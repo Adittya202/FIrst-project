@@ -1,0 +1,353 @@
+//STRING
+
+
+
+//1)
+import java.util.Scanner;
+public class A3T1{
+  public static void main(String[]args){
+    Scanner sc=new Scanner(System.in);
+    System.out.print("Enter a string");
+    String str1=sc.nextLine();
+    String str2="";
+    for(int i=str1.length()-1;i>=0;i--){
+      char d=str1.charAt(i);
+      str2=str2+d;
+    }
+    if(str2.equals(str1)){
+      System.out.print("Palindrome");
+    }else{
+      System.out.print("Not a palindrome");
+    }
+    sc.close();
+  }
+}
+
+//2)
+import java.util.Scanner;
+public class A3T2{
+  public static void main(String[]args){
+    Scanner sc=new Scanner(System.in);
+     String str2=" ";
+    System.out.print("Enter a string");
+    String str1=sc.nextLine();
+    for(int i=0;i<=str1.length()-1;i++){
+      char d=str1.charAt(i);
+      int Ascii=(int)d;
+      int final_ascii=(Ascii-1);
+      char e=(char)final_ascii;
+      str2=str2+e;
+    }
+    System.out.print(str2);
+  }
+}
+   
+//3)
+import java.util.Scanner;
+
+public class A3T3 {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Input a String");
+        String a = sc.nextLine();
+        
+        for (int row = 1; row <= a.length(); row++) {
+            for (int col=0; col<row;col++) {
+                char x = a.charAt(col);
+                System.out.print(x);
+            }
+            System.out.println();
+        }
+    }
+}
+
+
+//4)
+import java.util.Scanner;
+public class A3T4{
+  public static void main(String[]args){
+    Scanner sc=new Scanner(System.in);
+    String x=sc.nextLine();
+    int count=0;
+    boolean[] counted=new boolean[x.length()];
+    boolean printer=false;
+    
+    for(int i=0;i<x.length();i++){
+      char ch=x.charAt(i);
+      if(!counted[i]){
+      
+      for(int j=0;j<x.length();j++){
+        char ch2=x.charAt(j);
+        if(ch==ch2){
+          count++;
+          counted[j]=true;
+        }
+        
+      }
+      if(count>=2){
+          System.out.println(ch+" " + "has been counted " + count+" times in the word "+ x);
+        
+        count=0;
+        printer =true;
+        }
+        count=0;
+      }
+    }
+    if(printer){
+      System.out.println(" Please enter another word");
+    }else{
+      System.out.print("You entered "+x);
+    }
+  }
+}
+        
+
+//5)
+
+
+import java.util.Scanner;
+public class A3T5{
+  public static void main(String[]args){
+    Scanner sc=new Scanner(System.in);
+    int sum=0;
+    
+    String number_1=sc.nextLine();
+    String number_2=sc.nextLine();
+    String add_strings=number_1+" "+number_2;
+    for(int start=0;start<add_strings.length();start++){
+      char main_chars=add_strings.charAt(start);
+      int ascii=(int)main_chars;
+      sum=sum+ascii;
+    }
+    System.out.println(add_strings);
+    System.out.println(sum); 
+}
+}
+//Ja12-va
+//CHOWD+ HURY
+
+//6)
+
+import java.util.Scanner;
+public class A3T6  {
+  public static void main(String[]args){
+    Scanner sc=new Scanner(System.in);
+    String first=sc.nextLine();
+
+    char temp=' ';
+    String final_op=" ";
+    for(int index1=0;index1<first.length();index1++){
+      char ch1=first.charAt(index1);
+      
+      
+      if(ch1!=temp){
+        temp=ch1;
+        final_op+=ch1;
+        
+      }else{
+        continue;
+      }
+    }
+    System.out.print(final_op);
+  }
+}
+//ABBCCCCCBBAB
+//AAABBBBCDDBBECE
+
+
+//ARRAY
+
+//1)
+
+
+import java.util.Scanner;
+public class A3Array1{
+  public static void main(String[]args){
+    Scanner sc=new Scanner(System.in);
+    System.out.print("Please enter array length");
+    int N=sc.nextInt();
+    int arr[]=new int[N];
+    int count=0;
+    for(int i=0;i<N;i++){
+      arr[i]=sc.nextInt();
+    }
+    System.out.print("Remove Element=");
+    int x=sc.nextInt();
+    int arr2[]=new int[N];
+    for(int j=0;j<N;j++){
+      if(x==arr[j]){
+        continue;
+      }
+       arr2[j]=arr[j];
+       System.out.println(arr2[j]);
+       
+       
+    }
+  
+    
+  for(int l=0;l<N;l++){
+    if(arr2[l]==arr[l]){
+      count++;
+      if(count==N){
+        System.out.print("Element not found");
+      }
+    }
+          
+        }
+  
+  sc.close();
+  }
+}
+  
+
+//2)
+
+import java.util.Scanner;
+public class A3Array2{
+  public static void main(String[]args){
+    Scanner sc=new Scanner(System.in);
+    System.out.print("Input numbers");
+    int max=-999;
+    int min=999;
+    int max_index=0;
+    int min_index=0;
+    int arr[]=new int[5];
+      for(int i=0;i<=4;i++){
+    arr [i]=sc.nextInt();
+    }
+    for(int i=0;i<=4;i++){
+      if(arr[i]>max){
+        max=arr[i];
+        max_index=i;
+      }
+      if(arr[i]<min){
+        min=arr[i];
+        min_index=i;
+      }
+    }
+    System.out.println("The largest number "+max+" was found at location "+max_index);
+    System.out.println("The smallest number "+min+" was found at location "+min_index);
+  }
+}
+  
+    
+//3)
+
+import java.util.Scanner;
+public class A3Array3{
+  public static void main(String[]args){
+    Scanner sc=new Scanner(System.in);
+    System.out.print("Enter the length of the array");
+    int n=sc.nextInt();
+    int temp=0;
+    int arr[]=new int[n];
+    for(int i=0;i<n;i++){
+      arr[i]=sc.nextInt();
+    }
+    for(int i=0;i<n/2;i++){//0 1 2 3 4
+      temp=arr[i];//7 -31 344 97 100
+      arr[i]=arr[n-(i+1)];//100 97 344 -31 7
+      arr[n-(i+1)]=temp;//7 -31 344 97 100
+      
+      
+    }  
+      for(int i=0;i<n;i++){
+      System.out.print(arr[i]+" ");
+      }
+    }
+  }
+
+//4)
+
+import java.util.Scanner;
+public class A3Array4{
+  public static void main(String[]args){
+    Scanner sc=new Scanner(System.in);
+    System.out.print("Input a number");
+    int N=sc.nextInt();
+    int count=0;
+    int arr[]=new int[N];
+    boolean counted[]=new boolean[N];
+    for(int i=0;i<N;i++){
+      arr[i]=sc.nextInt();
+    }
+    
+    for(int i=0;i<N;i++){
+      if(!counted[i]){
+      for(int j=0;j<N;j++){
+        if(arr[i]==arr[j]){
+          count++;
+          counted[j]=true;
+        }
+        }
+       System.out.println(arr[i]+" " + (count)+" times");
+      count=0;
+      }
+     
+    }
+  }
+}
+//N = 5
+//6
+//15
+//14
+//15
+//6
+
+//5)
+
+import java.util.Scanner;
+public class A3Array5{
+  public static void main(String[]args){
+    Scanner sc=new Scanner(System.in);
+    System.out.print("Enter array length");
+    int N=sc.nextInt();
+    int count=1;
+    int arr[]=new int[N];
+    for(int i=0;i<N;i++){
+      arr[i]=sc.nextInt();
+    }
+    for(int i=1;i<N;i++){
+     
+        if(arr[i]!=arr[i-1]){
+          count++;
+         
+        }
+        }
+      
+    
+      int arr2[]=new int[count];
+      arr2[0]=arr[0];
+    int increament=1;
+         for(int i=1;i<N;i++){
+    
+        if(arr[i]!=arr[i-1]){
+          arr2[increament++]=arr[i];//0 1 2 3 4
+         
+        }else{
+          continue;
+        }
+      }
+         
+         for(int i=0;i<count;i++){
+         System.out.print(arr2[i]);
+         }
+  }
+}
+//5
+//2
+//1
+//1
+//2
+//3
+//3
+//3
+
+        
+      
+ 
+        
+         
+      
+                                            
+    
