@@ -1,0 +1,417 @@
+1a)
+public class A2T1{
+  public static void main(String[]args){
+    int i=2;
+    while(i<=50){
+      System.out.print(" "+i);
+      i+=4;
+    }
+  
+//    for(int i=2;i<=50;i+=4)
+//1b)
+
+    int i=1;
+    int count=0;
+    while(i<=120){
+      count++;
+      System.out.print(" "+i);
+      i++;
+      i=i+count;
+      
+      
+    }
+  }
+}
+      
+2)
+public class A2T2 {
+  public static void main(String[]args){
+    for(int i=2;i<=20;i+=2){
+      System.out.print(" "+i);
+    }
+      for(int i=18;i>=2;i-=2){
+     System.out.print(" "+i);
+      }
+  }
+}
+
+3)
+import java.util.Scanner;
+public class A2T3{
+  public static void main(String[]args){
+    Scanner sc=new Scanner(System.in);
+    System.out.print("Please input numbers");
+    double max=-999;
+    double min=999;
+    double sum=0;
+    double avg=0;
+    int count=0;
+    for(int i=1;i<=10;i++){
+      count++;
+    double x=sc.nextDouble();
+    sum=sum+x;
+    avg=sum/count;
+    if(x>max){
+      max=x;
+    }
+    if(x<min){
+      min=x;
+    }
+    }
+     System.out.println("Sum= "+sum);
+      System.out.println("Minimum ="+min);
+      System.out.println("Maximum ="+max);
+      System.out.println("Average ="+avg);
+    
+  }
+}
+
+// 1 
+//4 
+//2 
+//9 
+//2 
+//-4 
+//3 
+//-1 
+//0 
+//1
+   
+
+4)
+import java.util.Scanner;
+public class A2T4{
+  public static void main (String [] args){
+    Scanner sc= new Scanner (System.in);
+    int x=0;
+    int max=x;
+    int min=x;
+    int avg=x;
+    int avg2=x;
+    int sum=x;
+    int count=0;
+    for (int i=1; i<=10; i++){
+      x= sc.nextInt();
+      if (x%2!=0 && x>0){
+        if (x>max){
+          max=x;
+        }
+        if (x<min || x>0){
+          min=x;
+        }
+        count++;
+        sum+=x;
+        avg= sum/count;
+        avg2= sum*10;
+        avg2= avg2/count;
+        avg2=avg2%10;
+      }  
+    }
+    if (x%2!=0 && x>0){
+       System.out.println("Sum = " + sum);
+       System.out.println("Minimum = " + min);
+       System.out.println("Maximum = " + max);
+       System.out.println("Average = " + avg+ "." +avg2);
+    }
+    if (x%2==0 || x<0){
+      System.out.println ("No odd positive integers found");
+    }
+  }
+}
+
+//1 
+//4 
+//2 
+//9 
+//2 
+//-4 
+//3 
+//-1 
+//0 
+//1
+
+5)
+import java.util.Scanner;
+  public class A2T5{
+    public static void main(String[]args){
+      Scanner sc=new Scanner(System.in);
+      double count=0;
+      double sum=0;
+      double avg=0;
+      double max=-+999;
+      double min=999;
+      double avg_count=1;
+      for(int i=1;i<=999;i++){
+      System.out.print("Enter number");//5 6
+      double x=sc.nextInt();
+      
+      if(x==0){
+        count++;
+        avg_count--;
+      }else{
+      
+        count=0;
+        sum=x+sum;//5
+      avg=(sum/avg_count);//5
+       
+      if(x>max){//5
+//        min=max;//0
+        max=x;//5
+        
+      }
+       if(x<min){
+        min=x;
+      }
+      }
+      if(count==3){
+        System.out.print("No numbers found");
+        break;
+      }
+
+      
+      }
+       System.out.println("Sum= "+sum);//5
+      System.out.println("Minimum ="+min);//0
+      System.out.println("Maximum ="+max);//5
+      System.out.println("Average ="+avg);//5
+      
+      
+      
+     
+    }
+  }
+       
+// 4 
+//1 
+//12 
+//54 
+//0 
+//0 
+//37 
+//4 
+//0 
+//0 
+//0
+
+ 6)
+import java.util.Scanner;
+public class A2T6{
+  public static void main(String[]args){
+    Scanner sc=new Scanner(System.in);
+   double sum=0;
+   double sumW=0;
+    for(int i=1;i<=5;i++){
+      System.out.println("Enter numbers");//
+
+      double n=sc.nextDouble();//1 2
+      System.out.print("Enter weight for number");
+      double w=sc.nextDouble();//10 20
+      sum=sum+(w*n);//10 200
+      sumW=sumW+w;//10 30
+    }
+    double weighted_average =sum/sumW;
+    System.out.print(weighted_average);
+  }
+}
+//inputs are here
+//95.5 2
+//72.1 4
+//-3.8 1
+//0 2
+//59 1
+//  
+      
+7a)
+import java.util.Scanner;
+   public class A2T7{
+    public static void main(String[]args){
+    Scanner sc=new Scanner(System.in);
+    int x=sc.nextInt();
+    int num=0;
+    int num1=1;
+    int num3=0;
+    int temp=num1;
+    int sum=0;
+    int summation=0;
+   
+  System.out.print("1 ");
+    for(int i=1;i<=x;i++){
+     
+     num1=num+num1;
+      if(num1>=x){
+          break;
+        }
+     num=temp;
+     temp=num1;
+        System.out.print(num1+" ");
+        sum+=num1;
+    }
+    summation=sum+1;
+    //b
+     System.out.println("Sum= " + summation);
+    }
+   }       
+      
+      
+8)
+import java.util.Scanner;
+  public class A2T8{
+   public static void main(String[]args){
+   Scanner sc=new Scanner(System.in);
+   System.out.print("Please input two integer numbers;x>2");
+                    
+   int x=sc.nextInt();
+   int y=sc.nextInt();
+   int count=0;
+   
+     for(int i=x;i<=y;i++){//11
+
+       if(i>1 && i<=2){
+         count++;
+        
+       }else{
+         for(int j=2;j<=x-1;j++){
+           if(i%j==0){//f
+             break;
+             
+           }else if(j==x-1){//f
+             count++;
+           }    
+      }
+     }
+     }
+     System.out.print("There are "+count+" prime numbers between "+x+" and "+y);
+   }
+  }
+
+   
+9a)
+import java.util.Scanner;
+public class A2T9{
+ public static void main(String[]args){
+  Scanner sc=new Scanner(System.in);
+  int x=sc.nextInt();
+  int count=0;
+  int dig=x;
+  while(x>0){
+   x=x/10;
+   count++;
+  }
+   System.out.println(count);
+
+   //b
+   
+   for(int i=count-1;i>=0;i--){
+    int y=(int)(dig/Math.pow(10,i));
+     
+        int result=y*7;
+         System.out.print(result+" ");
+         
+         dig=(int)(dig%Math.pow(10,i));
+       }
+     }
+   }
+       
+10)
+import java.util.Scanner;
+  public class A2T10{
+  public static void main(String[]args){
+    Scanner sc=new Scanner(System.in);
+      int sum1=0;
+    int sum2=0;
+    int sum3=0;
+    int sum4=0;
+    int sum5=0;
+    int sum6=0;
+      System.out.print("Enter the amount");
+      int x=sc.nextInt();//2560
+      for(int i=1;i<x;i++){
+        if(sum1<=x){
+        sum1=sum1+500;//500 1000 1500 2000 2500
+        }else{
+          sum1=sum1-500;
+          System.out.println(i-2+" "+"500's note");
+          break;
+        }
+      }
+      int TK_remaining1=x-sum1;//60
+        for(int j=1;j<TK_remaining1;j++){
+        if(sum2<=TK_remaining1){
+          sum2=sum2+100;//100
+        }else{
+          sum2=sum2-100;//0
+          System.out.println(j-2+" "+"100's note");
+          break;
+        }
+      }
+      int TK_remaining2=TK_remaining1-sum2;//60
+      for(int k=1;k<TK_remaining2;k++){
+        if(sum3<=TK_remaining2){
+          sum3=sum3+50;//50 100
+        }else{
+          sum3=sum3-50;//50
+          System.out.println(k-2+" "+"50's note");
+          break;
+        }
+      }
+      int TK_remaining3=TK_remaining2-sum3;//10
+      for(int l=1;l<TK_remaining3;l++){
+        if(sum4<=TK_remaining3){
+          sum4=sum4+10;
+        }else{
+          sum4=sum4-10;
+          System.out.println(l-2+" "+"10's note");
+          break;
+        }
+      }
+      int TK_remaining4=TK_remaining3-sum4;
+      for(int m=1;m<TK_remaining4;m++){
+        if(sum5<=TK_remaining4){
+          sum5=sum5+5;
+        }else{
+          sum5=sum5-5;
+          System.out.println(m-2+" "+"5's note");
+          break;
+        }
+      }
+      int TK_remaining5=TK_remaining4-sum5;
+      for(int n=1;n<=100;n++){
+        if(sum6<=TK_remaining5){
+          sum6=sum6+1;
+        }else{
+          sum6=sum6-1;
+          System.out.println(n-2+" "+"1's note");
+          break;
+        }
+      }
+  }
+  }
+          
+        
+11a)
+public class A2T11A{
+  public static void main(String[]args){
+    for(int row=1;row<=5;row++){
+      for(int col=1;col<=5;col++){
+        System.out.print("*");
+      }System.out.println();
+    }
+ 
+    //11b)
+
+    for(int row=1;row<=5;row++){
+      for(int col=1;col<=5;col++){
+        System.out.print("*");
+        if(row==col){
+          break;
+        }
+    
+        
+      }
+      System.out.println();
+    }
+  }
+}   
+    
+      
+    
